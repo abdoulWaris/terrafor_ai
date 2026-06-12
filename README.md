@@ -1,8 +1,7 @@
 # terrafor_ai
-Voici une version **ultra minimaliste** prête à copier-coller dans un `README.md` :
 
-````md
 # LLM + Terraform + LocalStack Lab
+
 
 Projet local combinant :
 - un LLM local (Ollama)
@@ -63,10 +62,9 @@ Projet local de test, aucune ressource cloud réelle utilisée.
 
 ```
 
----
+### A faire
 
-Si tu veux, demain on peut :
 - rendre le CLI propre (commande `tfai`)
 - ajouter LocalStack + AWS provider clean
-- ou faire un mode interactif type chat 👍
+- ou faire un mode interactif type chat 
 ```
