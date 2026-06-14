@@ -1,0 +1,26 @@
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566"   # Edge port : tous les services AWS simulés
+    environment:
+      - SERVICES=s3,ec2,dynamodb,lambda,iam,sts,sns,sqs,ssm,cloudwatch,secretsmanager
+      - DEBUG=0
+      - PERSISTENCE=1
+    volumes:
+      - "./.localstack-data:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  # Optionnel : si vous préférez faire tourner Ollama en conteneur plutôt
+  # qu'en natif sur la machine hôte. Si vous lancez Ollama nativement
+  # (recommandé pour profiter du GPU), commentez ce service et utilisez
+  # http://localhost:11434 directement.
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - "./.ollama-data:/root/.ollama"
+  
